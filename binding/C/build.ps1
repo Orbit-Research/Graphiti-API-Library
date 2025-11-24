@@ -1,0 +1,1 @@
+gcc main.c -o test.exe -L. -lGraphiti_C

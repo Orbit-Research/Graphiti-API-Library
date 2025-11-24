@@ -1,0 +1,242 @@
+Graphiti API Library
+
+
+Library containing API calls of the Graphiti by Orbit Research.  
+Copyright © 2025 Orbit Research. All Rights Reserved.
+
+This library is applicable to both the Graphiti and Graphiti Plus devices.  
+Throughout this document, any reference to “Graphiti” should be understood as applicable to both Graphiti and Graphiti Plus.
+
+## Features
+
+- Easy-to-use C/C++ API for controlling Graphiti
+- Supports tactile rendering, pin control, and device status queries
+- Compatible with Windows
+
+## Requirements
+
+- C/C++ compiler (e.g., GCC, MSVC)
+- CMake (for building the library on your machine)
+- Python (for the python wrapper and use of it)
+- Java (for java wrapper and use of it)
+- Execution Policy must be RemoteSigned for the current user to run the ps1 script files (this can be changed by running Set-ExecutionPolicy.exe)
+
+## Usage Details
+
+- The output from the device is split into 4 event methods being getNextOutputEvent(), getNextDisplayStatusEvent(), getNextKeyEvent(), getNextGestureEvent(), and getNextDrawEvent()
+- getNextOutputEvent()
+    - This event method gets the output from:
+        - getSoftwareVersion()
+        - getHardwareVersion()
+        - getSerialNumber()
+        - getBatteryStatus()
+        - getResolutionInformation()
+        - getDeviceOrientation()
+        - getHeightInformation()
+        - getDeviceName()
+        - getDateAndTime()
+- getNextDisplayStatusEvent()
+    - This event method gets the output from:
+        - getAllPixelsPositionStatus()
+        - getSinglePixelPositionStatus()
+        - getSingleRowPixelsPositionStatus()
+        - getSingleColumnPixelsPositionStatus()
+        - getLastTouchPointStatus()
+- getNextKeyEvent()
+    - This event method gets the output from all the key presses from the device when key events are enabled
+- getNextGestureEvent()
+    - This event method gets the output from all the gestures done when touch events are enabled
+    - Gesture events are currently not supported by the device API but will be in the future
+    - This is here for when they have been supported
+- getNextDrawEvent()
+    - This event method gets the output from draw events done when touch events are enabled by setTouchEvent(true)
+    - Draw events contain
+- For some functions to get the information on time some delay (using graphiti->sleep(2)) is nessecary unless a waiting thread is used that will wait until the event method has gotten the information from the device
+- setConnectiona and creating the graphiti object with a connection in are not included in the python and java wrappers as they would not be callable since they take a GraphitiConnection Object. I think it could be possible using the C wrapper but it is also unnessecary as the startUp and shutDown calls already handle this well.
+- shutDown does clear the display when called which is realistically unnessecary as when turning the device off the pins do go down but it may be something to keep in mind if this is against any functionality someone has in mind for their program then the clear display can be removed
+- Since adding HID support the hidapi.dll has become a dependency of the Graphiti dll files so it must be present or added to the path in order for the Graphiti dll files to function
+- HID is fully supported using startUpHID
+
+## Folder Structure
+
+- .vscode 
+    - Contains visual studio code settings
+
+- binding 
+    - includes folders for bindings of specific languages for the library and test files for running the library 
+
+    - The C folder includes main.c as the library should be compiled so that it has the C wrapper that allows use of C for the library
+        - See README.md file in binding/C
+
+    - jgraphiti
+        - Java wrapper for the Graphiti library
+        - See README.md file in binding/jgraphiti
+
+    - python
+        - Python warpper for Graphiti library
+        - See README.md file in binding/python
+
+- build
+    - contains the build of the library with any run file it was run most recently which is typically the tests from the 
+        TestFolder
+
+- CMakeListsFiles
+    - Contains text files of the contents of CMakeLists.txt that are used for different things
+
+    - CMakeLists_For_using_Library.txt
+        - Used for compiling the library with your code with the lib versions of the library for a C++ program
+
+    - CMakeLists_LibraryCPP&C.txt
+        - Builds the library, The most recent version of this file is kept in the lib folder
+
+    - CMakeTesting.txt
+        - Builds the library within this directory with the Testing code 
+
+- documents
+    - Includes documents relevant to the Graphiti Library
+
+    - Graphiti API Library Overview v1.0.docx
+        - Brief description of the library 
+
+    - Graphiti API Library Setup Guide v1.0.docx
+        - Document describing how to setup the coding environment and libraries for dependencies for the Graphiti Library.
+
+- images
+    - Includes images used for testing the Graphiti image display commands.
+
+- lib
+    - Includes folders and files for the building of the library.
+
+    - build
+        - Build folder for the library.
+
+    - include
+        - Folder containing all header files and folders of the library.
+
+        - Connection
+            - Folder containing Connection header files
+
+            - Connection_HID.hpp
+                - Header file for HID conneciton
+
+            - Connection_VCP.hpp
+                - Header file for VCP connection
+
+            - Connection.hpp
+                - Header file for the conenction files to inherit from
+                
+        - CWrapper
+            - Folder with C Wrapper header file to allow the library to be used in C
+
+            - capi.hpp
+                - Files of the C Wrapper
+
+        - API_HID.hpp
+            - File intended for managing the changes in the encoding for the HID API calls
+            
+        - API_VCP.hpp
+            - File intended for managing the VCP changes to the API calls
+
+        - API.hpp
+            - Header for all the functions of the Graphiti API and handlers for responses from the Graphiti
+
+        - Extension.hpp
+            - Includes functions that assist in using the Graphiti API and combines the Connection handling with the API using startupVCP and shutdownVCP functions
+            
+        - ThreadSafeQueue.hpp
+            - Implementation of ThreadSafeQueue for C++ since the library uses a thread response loop to handle responses from the Graphiti
+
+    - src
+        - Source files for the library
+
+        - Connection
+            - Connection_HID.cpp
+                - File for handling any libraries used for connecting over HID
+                - Currently not used
+
+            - Conneciton_VCP.cpp
+                - File for handling asio for connecting over VCP
+
+        - CWrapper
+            - Folder containing C Wrapper handling
+
+            - capi.cpp
+                - C++ file containing the C++ wrappers
+
+        - API_HID.cpp
+            - File for handling the encoding differences for HID with the Graphiti
+            - Not currenlty used as VCP was made as the focus for now
+            
+        - API_VCP.cpp
+            - File for handling the encoding differences for VCP with the Graphiti
+            - Currently VCP functionality is in API.cpp
+
+        - API.cpp
+            - Holds implementation for all the functions of the Graphiti API and handlers for responses from the Graphiti
+
+        - Extension.cpp
+            - Implementation of assistive functions for using the Graphiti API in with VCP on the COM Ports
+
+    - CMakeLists.txt
+        - CMakeLists for compiling the library in C++ and C
+
+    - library.ps1
+        - Builds the library in Release mode (not outputing informaiton related to debugging)
+        - This file will compile the library by default using your generator and compiler
+        - If you would like to specify your Generator or compiler add them as parameters like in this example:
+            .\library.ps1 -Generator "Ninja" -Compiler "g++"
+        - To run this normally run: .\library.ps1
+        - This will build the library under your user profile in a folder called graphiti
+
+- main
+    - Folder for running Code withe the uncompiled library localy for testing
+
+    - ExtensionTest.cpp
+        - Tests the Extension code
+
+    - main.cpp
+        - Run of the library without the extension
+
+- scripts
+    - Folder containing all the scripts used for the root directory of the project
+
+    - install_library_vcpkg.ps1
+        - Installs the vcpkg by running vcpkg_Install_User.ps1
+        - Builds and installs the library by running library.ps1 from the lib folder
+    
+    - Set-ExecutionPolicy.exe
+        - Sets the execution polict to RemoteSigned so ps1 files can be run in powershell
+
+    - Set-ExcutionPolicy.ps1
+        - File used to create Set-ExecutionPolicy.exe
+        - This file is included for transparency as to the contents of Set-ExecutionPolicy.exe
+
+    - tools.ps1
+        - File containing commands that can be used to run the code or build the library in different ways
+        - Debug includes any code with the Debug flag
+        - No Extension excludes the Extension.cpp file
+
+    - vcpkg_Install_User.ps1
+        - Installs vcpkg under the current user and adds vcpkg to the PATH variables
+
+- TestFolder
+    - Folder containing tests and the test harness
+    - See README.md in TestFolder
+
+- .gitignore
+    - Git ignore to ignore files to that have changes like my history folder 
+    which is from an extension that saves recent changes to keep a history
+
+    - Also includes my_install.ps1 which is a ps1 file that is a copy of install_library_vcpkg script with -Generator "Ninja" -Compiler "g++" in the library.ps1 line to run with Ninja and g++ as they are my prefered generator and compiler
+
+- CMakeLists.txt
+    - CMakeLists.txt of running the test harness with the library Code just as in the CMakeListsFiles folder but is most up to date
+
+- CMakePresets.json
+    - Presets for using Ninja and vscode
+
+- GraphitiTesting.code-workspace
+    - Visual Studio Code workspace configuration
+
+- LICENSE
+    - File containing the GNU GENERAL PUBLIC LICENSE that this code was made under
