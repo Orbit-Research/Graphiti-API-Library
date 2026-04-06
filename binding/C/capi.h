@@ -13,7 +13,7 @@
   *
   ******************************************************************************
   * @attention
-  * Copyright (c) 2025 Orbit Research LLP
+  * Copyright (c) 2025 Orbit Research LLC
   * Distributed under GNU General Public License V3.0
   ******************************************************************************
   */

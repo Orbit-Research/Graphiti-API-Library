@@ -1,7 +1,7 @@
 ## Graphiti API Library
 
 
-Library containing API calls of the Graphiti by Orbit Research LLP  
+Library containing API calls of the Graphiti by Orbit Research LLC  
 Copyright © 2026 Orbit Research LLC All Rights Reserved.
 
 This library is applicable to both the Graphiti and Graphiti Plus devices.  
@@ -9,7 +9,7 @@ Throughout this document, any reference to “Graphiti” should be understood a
 
 ## Features
 
-- Easy-to-use C/C++ API for controlling Graphiti
+- Easy-to-use C/C++ API for controlling Graphiti/Graphiti Plus
 - Supports tactile rendering, pin control, and device status queries
 - Compatible with Windows
 
@@ -95,12 +95,18 @@ Throughout this document, any reference to “Graphiti” should be understood a
 - documents
     - Includes documents relevant to the Graphiti Library
 
-    - Graphiti API Library Overview v1.0.docx
+    - Graphiti API Library Overview v1.0.pdf
         - Brief description of the library 
 
-    - Graphiti API Library Setup Guide v1.0.docx
+    - Graphiti API Library Setup Guide v1.0.pdf
         - Document describing how to setup the coding environment and libraries for dependencies for the Graphiti Library.
+    - Graphiti API Specification v1.1.pdf  
+                This document describes the communication protocol between a host device (a PC, for instance) and the Graphiti® Tactile Graphics Display,with detailed descriptions of each command. 
+    - Graphiti Plus - API mode APP NOTE v0.0.pdf
+                Application note describing how to use Graphiti Plus in API (HID) mode, including device setup, connection process, and integration with the Graphiti API Library.
 
+    - Graphiti Plus - Braille Communication Protocol v0.0.pdf    
+                Detailed specification of the Braille communication protocol, covering USB HID, VCP, and Bluetooth interfaces, along with command structures and data exchange formats.
 - images
     - Includes images used for testing the Graphiti image display commands.
 
