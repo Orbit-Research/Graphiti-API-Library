@@ -3,6 +3,25 @@
 *.exe
 !scripts/Set-ExecutionPolicy.exe
 *.dll
+# === Allow Graphiti DLLs (C binding) ===
+!Graphiti-API-Library/binding/C/Graphiti.dll
+!Graphiti-API-Library/binding/C/Graphiti_C.dll
+!Graphiti-API-Library/binding/C/hidapi.dll
+!Graphiti-API-Library/binding/C/libGraphiti_C.dll
+
+# === Allow Graphiti DLLs (Java binding) ===
+!Graphiti-API-Library/binding/jgraphiti/Graphiti.dll
+!Graphiti-API-Library/binding/jgraphiti/GraphitiJNI.dll
+!Graphiti-API-Library/binding/jgraphiti/hidapi.dll
+!Graphiti-API-Library/binding/jgraphiti/libGraphiti.dll
+!Graphiti-API-Library/binding/jgraphiti/libGraphitiJNI.dll
+
+# === Allow Graphiti DLLs (Python binding) ===
+!Graphiti-API-Library/binding/python/Graphiti.dll
+!Graphiti-API-Library/binding/python/hidapi.dll
+!Graphiti-API-Library/binding/python/Graphiti_C.dll
+!Graphiti-API-Library/binding/python/libGraphiti.dll
+!Graphiti-API-Library/binding/python/libGraphiti_C.dll
 *.dll.a
 *.dll22
 *.dll222
