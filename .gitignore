@@ -1,0 +1,57 @@
+# === Compiled binaries ===
+*.exe
+*.exe
+!scripts/Set-ExecutionPolicy.exe
+*.dll
+*.dll.a
+*.dll22
+*.dll222
+*.lib
+*.lib.a
+
+# === Debug/build artifacts ===
+*.pdb
+*.ilk
+*.obj
+*.o
+
+# === CMake build folders ===
+build/
+*/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.ninja
+.ninja_deps
+.ninja_log
+
+# === Java compiled ===
+*.class
+
+# === Visual Studio ===
+.vs/
+*.user
+*.suo
+*.vc.db
+*.VC.opendb
+
+# === OS generated ===
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+
+# === Temp files ===
+*~ 
+* - Copy.*
+.vscode/
+
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Test results (runtime generated)
+failedTests.txt
+passedTests.txt

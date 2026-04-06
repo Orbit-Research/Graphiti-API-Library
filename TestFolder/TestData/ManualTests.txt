@@ -1,0 +1,2 @@
+get_Next_Draw_Event_Functionality
+get_Next_KeyEvent_Functionality
