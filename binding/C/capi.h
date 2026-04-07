@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    lib/include/CWrapper/graphiti_capi.h
+  * @file    capi.h
   * @company Orbit Research
   * @version v1.0
   * @date    08-12-25
@@ -13,7 +13,7 @@
   *
   ******************************************************************************
   * @attention
-  * Copyright (c) 2025 Orbit Research LLC
+  * Copyright (c) 2026 Orbit Research LLC
   * Distributed under GNU General Public License V3.0
   ******************************************************************************
   */

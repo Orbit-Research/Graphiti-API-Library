@@ -2,23 +2,23 @@
 
 1. Rebuilt Graphiti_C in Debug Mode:
 
--cd "c:\Users\Graphiti-API-Library\lib\build"
--cmake --build . --config Debug --target Graphiti_C
+- cd "c:\Users\Graphiti-API-Library\lib\build"
+- cmake --build . --config Debug --target Graphiti_C
 
 2. Copied Debug DLL:
 
-copy "c:\Users\Graphiti-API-Library\lib\build\Debug\Graphiti_C.dll" "c:\Users\Graphiti-API-Library\binding\C\Graphiti_C.dll"
+- copy "c:\Users\Graphiti-API-Library\lib\build\Debug\Graphiti_C.dll" "c:\Users\Graphiti-API-Library\binding\C\Graphiti_C.dll"
 
 3. Build the code in this directory with:
-.\build.ps1
-Before running the project, make sure the following DLL files are present in the C folder:
--Graphiti.dll
--Graphiti_C.dll
--hidapi.dll
+- .\build.ps1
+- Before running the project, make sure the following DLL files are present in the C folder:
+- Graphiti.dll
+- Graphiti_C.dll
+- hidapi.dll
 
 4. Run with:
 
-.\test.exe
+- .\test.exe
 
 ## Usage ##
 
@@ -61,3 +61,37 @@ For Multi-Config
     - Progam to showcase use of Graphiti library with VCP and HID
 - test.exe
     - Compiled code for execcution of main.c and library
+
+    ## C Test Coverage (HID & VCP)
+
+The C example (`binding/C/main.c`) demonstrates usage of the Graphiti C wrapper API for communicating with the device. The primary implementation uses HID, while VCP support is also included as a commented reference.
+
+The following tests and operations are implemented:
+
+### Initialization
+- graphiti_create (creates device handle)
+
+### Connection Test
+- graphiti_startUpHID (active implementation using VID/PID)
+- graphiti_startUpVCP (available as commented example for COM port communication)
+
+### Basic Query Test
+- get_Software_Version_Correctness  
+
+### Pixel Control Test
+- graphiti_updateSinglePixel (set pixel height)  
+- graphiti_updateSinglePixel (reset pixel height)  
+
+### Event Handling
+- graphiti_getNextOutputEvent  
+
+### Utility
+- graphiti_sleep (used for timing and response handling)
+
+### Cleanup
+- graphiti_shutDownHID  
+- graphiti_destroy  
+
+This example demonstrates a basic workflow for initializing the device, performing API calls, validating responses, and controlling pixels using the C wrapper.
+
+> The VCP connection code is included but commented out. It can be enabled by modifying the connection logic and specifying the correct COM port.

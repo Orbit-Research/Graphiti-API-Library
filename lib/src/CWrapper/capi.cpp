@@ -1,9 +1,3 @@
-#include <vector>
-#include <set>
-#include <string>
-#include <cstring>
-
-#include <Graphiti/CWrapper/capi.h>
 /** ******************************************************************************
  * @file    capi.cpp
  * @company Orbit Research
@@ -22,6 +16,12 @@
  * Distributed under GNU General Public License V3.0
  *******************************************************************************/
 
+#include <vector>
+#include <set>
+#include <string>
+#include <cstring>
+
+#include <Graphiti/CWrapper/capi.h>
 #include <Graphiti/Extension.hpp>
 
 // Opaque handle = C++ class

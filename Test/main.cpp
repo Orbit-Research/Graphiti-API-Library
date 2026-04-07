@@ -7,7 +7,7 @@
  *
  * @details
  * Small CLI program that creates a `TestHarness` instance and runs test
- * suites defined in `TestFolder/TestData`. Intended for developers to run
+ * suites defined in `Test/TestData`. Intended for developers to run
  * automated or manual test groups against a connected Graphiti device.
  *
  *****************************************************************************

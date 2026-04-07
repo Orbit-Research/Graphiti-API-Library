@@ -21,6 +21,31 @@ Throughout this document, any reference to “Graphiti” should be understood a
 - Java (for java wrapper and use of it)
 - Execution Policy must be RemoteSigned for the current user to run the ps1 script files (this can be changed by running Set-ExecutionPolicy.exe)
 
+## Setup & Testing Guide
+
+To properly set up the environment and run the test harness, please follow the instructions provided in:
+
+**Graphiti API Library Setup Guide v1.1.pdf**
+
+This document contains the complete setup process, including dependency installation, environment configuration, and steps required to successfully run the library and associated tests.
+
+## Device Connection & Interface Information
+
+The Graphiti devices can be identified using the following USB Vendor ID (VID) and Product ID (PID):
+
+- **Graphiti**
+  - VID: 0x1FC9  
+  - PID: 0x8217  
+
+- **Graphiti Plus**
+  - VID: 0x0483  
+  - PID: 0xA366
+  - Interface: 1  
+
+> **Note for Graphiti Plus:**  
+> Due to multiple HID interfaces being created, ensure that the correct interface is selected.  
+> The **Interface 1** is specifically used for communication with the Graphiti Plus device in Graphiti API.
+
 ## Usage Details
 
 - The output from the device is split into 4 event methods being getNextOutputEvent(), getNextDisplayStatusEvent(), getNextKeyEvent(), getNextGestureEvent(), and getNextDrawEvent()
@@ -67,8 +92,13 @@ Throughout this document, any reference to “Graphiti” should be understood a
 
     - The C folder includes main.c as the library should be compiled so that it has the C wrapper that allows use of C for the library
         - See README.md file in binding/C
+    
+    - Java_vcp
+        - Java VCP test for device communication
+        -  See README.md file in binding/Java_vcp
 
     - jgraphiti
+        - Java implementation for HID communication  
         - Java wrapper for the Graphiti library
         - See README.md file in binding/jgraphiti
 
@@ -78,7 +108,7 @@ Throughout this document, any reference to “Graphiti” should be understood a
 
 - build
     - contains the build of the library with any run file it was run most recently which is typically the tests from the 
-        TestFolder
+        Test
 
 - CMakeListsFiles
     - Contains text files of the contents of CMakeLists.txt that are used for different things
@@ -101,12 +131,12 @@ Throughout this document, any reference to “Graphiti” should be understood a
     - Graphiti API Library Setup Guide v1.0.pdf
         - Document describing how to setup the coding environment and libraries for dependencies for the Graphiti Library.
     - Graphiti API Specification v1.1.pdf  
-                This document describes the communication protocol between a host device (a PC, for instance) and the Graphiti® Tactile Graphics Display,with detailed descriptions of each command. 
+        - This document describes the communication protocol between a host device (a PC, for instance) and the Graphiti® Tactile Graphics Display,with detailed descriptions of each command. 
     - Graphiti Plus - API mode APP NOTE v0.0.pdf
-                Application note describing how to use Graphiti Plus in API (HID) mode, including device setup, connection process, and integration with the Graphiti API Library.
+        - Application note describing how to use Graphiti Plus in API (HID) mode, including device setup, connection process, and integration with the Graphiti API Library.
 
     - Graphiti Plus - Braille Communication Protocol v0.0.pdf    
-                Detailed specification of the Braille communication protocol, covering USB HID, VCP, and Bluetooth interfaces, along with command structures and data exchange formats.
+        - Detailed specification of the Braille communication protocol, covering USB HID, VCP, and Bluetooth interfaces, along with command structures and data exchange formats.
 - images
     - Includes images used for testing the Graphiti image display commands.
 
@@ -194,15 +224,6 @@ Throughout this document, any reference to “Graphiti” should be understood a
         - To run this normally run: .\library.ps1
         - This will build the library under your user profile in a folder called graphiti
 
-- main
-    - Folder for running Code withe the uncompiled library localy for testing
-
-    - ExtensionTest.cpp
-        - Tests the Extension code
-
-    - main.cpp
-        - Run of the library without the extension
-
 - scripts
     - Folder containing all the scripts used for the root directory of the project
 
@@ -225,9 +246,9 @@ Throughout this document, any reference to “Graphiti” should be understood a
     - vcpkg_Install_User.ps1
         - Installs vcpkg under the current user and adds vcpkg to the PATH variables
 
-- TestFolder
+- Test
     - Folder containing tests and the test harness
-    - See README.md in TestFolder
+    - See README.md in Test
 
 - .gitignore
     - Git ignore to ignore files to that have changes like my history folder 

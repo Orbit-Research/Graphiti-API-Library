@@ -9,7 +9,7 @@ Provides pythonic classes and helpers wrapping the Graphiti C ABI. Intended for
 Python 3.8+ and requires the compiled Graphiti shared library accessible at runtime.
 
 License: Distributed under GNU General Public License V3.0
-Copyright (c) 2025 Orbit Research
+Copyright (c) 2026 Orbit Research
 """
 
 from ctypes import (

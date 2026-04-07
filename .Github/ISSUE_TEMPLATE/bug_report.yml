@@ -1,0 +1,111 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in the Graphiti API Library
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please provide as much detail as possible.
+
+  - type: input
+    id: version
+    attributes:
+      label: Library Version / Commit
+      description: Which version or commit of Graphiti-API-Library are you using?
+      placeholder: v1.0.0 
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device_model
+    attributes:
+      label: Device Model
+      options:
+        - Graphiti
+        - Graphiti Plus
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language Binding
+      options:
+        - C
+        - C++
+        - Python
+        - Java
+    validations:
+      required: true
+
+  - type: dropdown
+    id: connection_type
+    attributes:
+      label: Connection Type
+      options:
+        - HID
+        - VCP (Serial/COM)
+    validations:
+      required: true
+
+  - type: input
+    id: firmware_version
+    attributes:
+      label: Firmware Version
+      description: What is the firmware version of the device? (from getSoftwareVersion() or device info)
+      placeholder: 2.1.3
+
+  - type: input
+    id: serial_number
+    attributes:
+      label: Device Serial Number (Optional)
+      description: Helps in identifying hardware-specific problems
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Clearly describe the bug or issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. 
+        2. 
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Error Messages / Screenshots
+      description: Paste any error logs, return codes, console output, or attach screenshots.
+      render: shell
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this is not a duplicate
+          required: true
+        - label: I have provided device model, connection type and firmware version
+          required: true
