@@ -62,7 +62,7 @@ For Multi-Config
 - test.exe
     - Compiled code for execcution of main.c and library
 
-    ## C Test Coverage (HID & VCP)
+## C Test Coverage (HID & VCP)
 
 The C example (`binding/C/main.c`) demonstrates usage of the Graphiti C wrapper API for communicating with the device. The primary implementation uses HID, while VCP support is also included as a commented reference.
 

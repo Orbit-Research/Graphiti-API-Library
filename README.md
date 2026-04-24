@@ -25,7 +25,7 @@ Throughout this document, any reference to “Graphiti” should be understood a
 
 To properly set up the environment and run the test harness, please follow the instructions provided in:
 
-**Graphiti API Library Setup Guide v1.1.pdf**
+**Graphiti API Library Setup Guide v1.1.md**
 
 This document contains the complete setup process, including dependency installation, environment configuration, and steps required to successfully run the library and associated tests.
 
@@ -125,18 +125,21 @@ The Graphiti devices can be identified using the following USB Vendor ID (VID) a
 - documents
     - Includes documents relevant to the Graphiti Library
 
-    - Graphiti API Library Overview v1.0.pdf
+    - Graphiti API Library Overview v1.0.md
         - Brief description of the library 
 
-    - Graphiti API Library Setup Guide v1.0.pdf
+    - Graphiti API Library Setup Guide v1.0.md
         - Document describing how to setup the coding environment and libraries for dependencies for the Graphiti Library.
-    - Graphiti API Specification v1.1.pdf  
+
+    - Graphiti API Specification v1.1.md  
         - This document describes the communication protocol between a host device (a PC, for instance) and the Graphiti® Tactile Graphics Display,with detailed descriptions of each command. 
-    - Graphiti Plus - API mode APP NOTE v0.0.pdf
+
+    - Graphiti Plus - API mode APP NOTE v0.0.md
         - Application note describing how to use Graphiti Plus in API (HID) mode, including device setup, connection process, and integration with the Graphiti API Library.
 
-    - Graphiti Plus - Braille Communication Protocol v0.0.pdf    
+    - Graphiti Plus - Braille Communication Protocol v0.0.md    
         - Detailed specification of the Braille communication protocol, covering USB HID, VCP, and Bluetooth interfaces, along with command structures and data exchange formats.
+
 - images
     - Includes images used for testing the Graphiti image display commands.
 
