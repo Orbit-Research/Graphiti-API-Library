@@ -45,16 +45,12 @@ function(add_graphiti_exe name source)
     target_link_libraries(${name} PRIVATE Graphiti)
 endfunction()
 
-# Add executables
-
-# add_graphiti_exe(ExtensionTest main/ExtensionTest.cpp)
-
 set(TEST_SOURCES
-    TestFolder/main.cpp
-    TestFolder/TestHarness.cpp
-    TestFolder/TestHarness.hpp
-    TestFolder/Tests.cpp
-    TestFolder/Tests.hpp
+    Test/main.cpp
+    Test/TestHarness.cpp
+    Test/TestHarness.hpp
+    Test/Tests.cpp
+    Test/Tests.hpp
 )
 add_executable(Testing ${TEST_SOURCES})
 

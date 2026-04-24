@@ -18,7 +18,7 @@
   ******************************************************************************
   */
 
-package binding.examplej;
+package binding.Java_vcp;
 import binding.jgraphiti.Graphiti;
 
 public class Main {
@@ -55,7 +55,7 @@ public class Main {
          * @param enableTouchEvent Enable or disable touch events
          * @return boolean - true on successful connection
          */
-        graphiti.startUpVCP(handle, "COM4", false, false);
+        graphiti.startUpVCP(handle, "COM12", false, false);
 
         /**
          * @function sleep

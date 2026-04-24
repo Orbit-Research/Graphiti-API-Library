@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    lib/include/Connection/Connection_HID.hpp
+  * @file    Connection_HID.hpp
   * @company Orbit Research
   * @version v1.0
   * @date    08-12-25

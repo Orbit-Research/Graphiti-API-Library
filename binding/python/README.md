@@ -46,11 +46,11 @@ For Multi-Config
    cd binding/python 
 
 6. Copy Required Runtime Files
-   .\copy-files.ps1 
-   Before running the project, make sure the following DLL files are present in the Python folder:
-   -Graphiti_C.dll (libGraphiti_C.dll)
-   -libGraphiti.dll      
-   -hidapi.dll  
+   - \copy-files.ps1 
+   - Before running the project, make sure the following DLL files are present in the Python folder:
+   - Graphiti_C.dll (libGraphiti_C.dll)
+   - libGraphiti.dll      
+   - hidapi.dll  
 
 7. Run Python Test Script
    python test.py.
@@ -59,3 +59,33 @@ For Multi-Config
 - In `test.py`, comment HID block and uncomment VCP block.
 - python test.py.
 
+## Python Test Coverage
+
+The Python wrapper includes a test script (`test.py`) that validates multiple Graphiti API functionalities. The following tests are currently implemented:
+
+### Display Tests
+- update_Display_Functionality  
+- set_Display_Funcitonality  
+- clear_Display_Functionality  
+
+### Key Event Test
+- get_Next_KeyEvent_Functionality  
+
+### Device Interaction Tests
+- show_Message_On_The_Device_Functionality  
+- set_Cursor_Functionality  
+
+### Date & Time Test
+- get_Date_And_Time_Correctness  
+
+### Pixel Status Tests
+- get_ALL_Pixels_Position_Status_Correctness  
+- get_Single_Pixel_Position_Status_Correctness  
+
+### String / Device Info Tests
+- get_Software_Version_Correctness  
+- get_Hardware_Version_Correctness  
+- get_Serial_Number_Correctness  
+- get_Battery_Status_Correctness  
+
+These tests are used to validate core API behavior, device communication, and response correctness using the Python wrapper.

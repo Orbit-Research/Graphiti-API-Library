@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    lib/include/CWrapper/graphiti_capi.h
+  * @file    graphiti_capi.h
   * @company Orbit Research
   * @version v1.0
   * @date    08-12-25

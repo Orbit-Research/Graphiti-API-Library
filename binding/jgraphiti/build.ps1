@@ -10,7 +10,7 @@ Remove-Item -Force -ErrorAction SilentlyContinue
 .\copy-files.ps1
 
 # Remove JNI headers
-Remove-Item -Force -Recurse -ErrorAction SilentlyContinue .\Graphiti.class, '.\Graphiti$DrawEvent.class', '.\Graphiti$PinInfo.class', .\binding_jGraphiti_Graphiti.h
+Remove-Item -Force -Recurse -ErrorAction SilentlyContinue .\Graphiti.class, '.\Graphiti$DrawEvent.class', '.\Graphiti$PinInfo.class', .\binding_jgraphiti_Graphiti.h
 
 # Compile JNI headers
 javac Graphiti.java

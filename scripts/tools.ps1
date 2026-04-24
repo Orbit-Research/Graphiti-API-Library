@@ -23,7 +23,9 @@ Set-Location (Join-Path $PSScriptRoot "..")
 #>
 function clean {
     Write-Host "Running clean..."
-    Remove-Item -Recurse -Force .\build\
+    if (Test-Path .\build\) {
+        Remove-Item -Recurse -Force .\build\
+    }
 }
 
 <#

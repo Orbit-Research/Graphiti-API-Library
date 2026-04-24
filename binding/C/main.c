@@ -65,12 +65,6 @@ int main() {
         interfaceNum = 1;
     }
 
-    // If your graphiti_startUpHID supports interface number, use it:
-    // if(!graphiti_startUpHID(graphiti, vid, pid, interfaceNum, false, false)) {
-    //     printf("Failed to connect\n");
-    //     return 1;
-    // }
-
     // Use the 5-argument version:
     printf("Calling graphiti_startUpHID(0x%04X,0x%04X,false,false)...\n", vid, pid);
     int success = graphiti_startUpHID(graphiti, vid, pid, false, false);

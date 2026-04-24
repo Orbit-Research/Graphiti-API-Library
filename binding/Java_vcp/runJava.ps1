@@ -1,20 +1,20 @@
 # Runs .java files in the current directory with the library
 
-# Save current location (binding/examplej)
+# Save current location (binding/Java_vcp)
 $currentDir = Get-Location
 
 # Move two levels up to project root (Graphiti_API_Library_0_1)
 Set-Location ..\..
 
-# Step 1: Compile only .java files in binding/examplej/
-$javaSourceDir = "binding/examplej"
+# Step 1: Compile only .java files in binding/Java_vcp/
+$javaSourceDir = "binding/Java_vcp"
 $javaFiles = Get-ChildItem -Path $javaSourceDir -Recurse -Filter *.java | ForEach-Object { $_.FullName }
 javac $javaFiles
 
 # Step 2: Define the base java command
 $javaCommand = 'java "-Djava.library.path=binding/jgraphiti" -cp .'
 
-# Step 3: Get all .class files under binding/examplej
+# Step 3: Get all .class files under binding/Java_vcp
 $classFiles = Get-ChildItem -Path $javaSourceDir -Filter "*.class" -Recurse
 
 # Step 4: Convert file paths to fully-qualified class names
@@ -32,5 +32,5 @@ $fullCommand = "$javaCommand $argString"
 Write-Host "Running: $fullCommand"
 Invoke-Expression $fullCommand
 
-# Step 7: Return to the original folder (binding/examplej)
+# Step 7: Return to the original folder (binding/Java_vcp)
 Set-Location $currentDir

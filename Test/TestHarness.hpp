@@ -36,7 +36,7 @@ File names of more used files along with testDataDir which is the directory of t
 inline const std::string alltestsfile = "Tests.txt";
 inline const std::string passedfile = "passedTests.txt";
 inline const std::string failedfile = "failedTests.txt";
-inline const std::string testDataDir = "TestFolder/TestData/";
+inline const std::string testDataDir = "Test/TestData/";
 inline const std::string ManualTests = "ManualTests.txt";
 
 inline const std::string displayTests = "DisplayTests.txt";
