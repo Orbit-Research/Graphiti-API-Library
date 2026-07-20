@@ -1,0 +1,76 @@
+# === Compiled binaries ===
+*.exe
+*.exe
+!scripts/Set-ExecutionPolicy.exe
+*.dll
+# === Allow Graphiti DLLs (C binding) ===
+!binding/C/Graphiti.dll
+!binding/C/Graphiti_C.dll
+!binding/C/hidapi.dll
+!binding/C/libGraphiti_C.dll
+
+# === Allow Graphiti DLLs (Java binding) ===
+!binding/jgraphiti/Graphiti.dll
+!binding/jgraphiti/GraphitiJNI.dll
+!binding/jgraphiti/hidapi.dll
+!binding/jgraphiti/libGraphiti.dll
+!binding/jgraphiti/libGraphitiJNI.dll
+
+# === Allow Graphiti DLLs (Python binding) ===
+!binding/python/Graphiti.dll
+!binding/python/hidapi.dll
+!binding/python/Graphiti_C.dll
+!binding/python/libGraphiti.dll
+!binding/python/libGraphiti_C.dll
+*.dll.a
+*.dll22
+*.dll222
+*.lib
+*.lib.a
+
+# === Debug/build artifacts ===
+*.pdb
+*.ilk
+*.obj
+*.o
+
+# === CMake build folders ===
+build/
+*/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.ninja
+.ninja_deps
+.ninja_log
+
+# === Java compiled ===
+*.class
+
+# === Visual Studio ===
+.vs/
+*.user
+*.suo
+*.vc.db
+*.VC.opendb
+
+# === OS generated ===
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+
+# === Temp files ===
+*~ 
+* - Copy.*
+.vscode/
+
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Test results (runtime generated)
+failedTests.txt
+passedTests.txt
